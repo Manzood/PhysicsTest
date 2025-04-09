@@ -37,9 +37,11 @@ void processEvent(sf::Event& event) {
                 ball.setSpeed({ball.getSpeed().x, ySpeed - 5.0f});
                 break;
             case sf::Keyboard::A:
+            case sf::Keyboard::H:
                 ball.setSpeed({-4, ball.getSpeed().y});
                 break;
             case sf::Keyboard::D:
+            case sf::Keyboard::L:
                 ball.setSpeed({4, ball.getSpeed().y});
                 break;
             default:
@@ -48,9 +50,11 @@ void processEvent(sf::Event& event) {
     } else if (event.type == sf::Event::KeyReleased) {
         switch (event.key.code) {
             case sf::Keyboard::A:
+            case sf::Keyboard::H:
                 ball.setSpeed({0, ball.getSpeed().y});
                 break;
             case sf::Keyboard::D:
+            case sf::Keyboard::L:
                 ball.setSpeed({0, ball.getSpeed().y});
                 break;
             default:
@@ -86,9 +90,13 @@ int main() {
     sf::Text applicationFrameRateText;
     applicationFrameRateText.setFont(font);
     applicationFrameRateText.setCharacterSize(24);
-    applicationFrameRateText.setColor(
-        sf::Color::Red);  // should probably be setFillColor now that we've
-                          // updated it
+
+    // configuration since I only have version 2.1 available with my LSP
+#if SFML_MINOR_VERSION == 1
+    applicationFrameRateText.setColor(sf::Color::Red);
+#else
+    applicationFrameRateText.setFillColor(sf::Color::Red);
+#endif
 
     init();
 

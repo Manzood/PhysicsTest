@@ -1,4 +1,4 @@
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+# set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 cmake_minimum_required(VERSION 3.22.1)
 # cmake_minimum_required(VERSION 3.21)
@@ -14,5 +14,4 @@ add_executable(PhysicsSim ${SOURCES})
 
 target_include_directories(PhysicsSim PUBLIC ${CMAKE_SOURCE_DIR}/include)
 target_link_libraries(PhysicsSim sfml-graphics sfml-window sfml-system)
-
 
